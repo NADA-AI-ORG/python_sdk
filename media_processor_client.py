@@ -15,7 +15,7 @@ class MediaProcessorClient:
         self.headers = {
             "X-API-Key": self.api_key
         }
-        self.base_url = "http://modalica.ai:8080/v1/media_processor"
+        self.base_url = "https://api.modalica.ai/v1/media_processor"
 
     def _make_request(self, endpoint, data, headers, is_json=True):
         """Internal method to make an HTTP request to the given endpoint.

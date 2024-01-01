@@ -11,7 +11,7 @@ class KnowledgeHubClient:
             api_key (str): Your API key for the Knowledge Hub API.
         """
         self.api_key = api_key
-        self.base_url = "http://modalica.ai:8080/v1/knowledge_hub"
+        self.base_url = "https://api.modalica.ai/v1/knowledge_hub"
         self.headers = {
             "X-API-Key": self.api_key
         }
