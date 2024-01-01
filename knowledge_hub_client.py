@@ -102,4 +102,5 @@ class KnowledgeHubClient:
         """
         endpoint = f"{self.base_url}/delete_corpus"
         response = requests.post(endpoint, headers=self.headers)
+        print(response)
         return response

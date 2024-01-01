@@ -24,6 +24,8 @@ class TestKnowledgeHubClient(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_core_functions_in_order(self):
+        # We can delete the corpus and then see if we can
+        response = self.sdk.delete_corpus()
         # We first need to create a corpus
         response = self.sdk.create_corpus()
         self.assertEqual(response.status_code, 200)
