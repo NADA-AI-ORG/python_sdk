@@ -58,21 +58,25 @@ class TestModelHubClient(unittest.TestCase):
             "number_of_images": 1
         }
         image_response = self.sdk.generate_image(image_prompt, image_model_configs)
-        print(image_response)
         self.assertIsNotNone(image_response)
         # Add more assertions here as necessary
 
     def test_generate_chat(self):
         # Test generating chat with built-in history
-        chat_prompt = "Tell me a joke"
+        chat_prompt_1 = "Who's obama?"
+        chat_prompt_2 = "Who is his wife?"
         chat_model_configs = {
             "model_name": "gpt-3.5-turbo",
             "temperature": 0.05,
-            "max_tokens": 256
+            "max_tokens": 256,
+            "system": "Response must be shorter than 5 words."
         }
-        chat_with_history_response = self.sdk.generate_chat(chat_prompt, chat_model_configs)
-        print(chat_with_history_response)
-        self.assertIsNotNone(chat_with_history_response)
+        chat_with_history_response_1 = self.sdk.generate_chat(chat_prompt_1, chat_model_configs)
+        chat_with_history_response_2 = self.sdk.generate_chat(chat_prompt_2, chat_model_configs)
+        print(chat_with_history_response_1)
+        print(chat_with_history_response_2)
+        self.assertIsNotNone(chat_with_history_response_1)
+        self.assertIsNotNone(chat_with_history_response_2)
         # Add more assertions here as necessary
 
 if __name__ == '__main__':
