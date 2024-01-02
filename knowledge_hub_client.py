@@ -102,5 +102,11 @@ class KnowledgeHubClient:
         """
         endpoint = f"{self.base_url}/delete_corpus"
         response = requests.post(endpoint, headers=self.headers)
-        print(response)
+        print("Status Code:", response.status_code)
+        print("Headers:", response.headers)
+        print("URL:", response.url)
+        print("Content:", response.text)
+        # If you expect a JSON response, you can also add:
+        # print("JSON:", response.json())
+        print("Elapsed Time:", response.elapsed)
         return response

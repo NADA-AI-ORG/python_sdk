@@ -140,7 +140,7 @@ class ModelHubClient:
             "llm_configs": llm_configs
         }
         response = requests.post(end_point, json=prompt_and_config, headers=self.headers)
-        return response.text
+        return response
 
     def generate_chat_with_given_history(self, prompt, message_history, chat_model_configs):
         """
@@ -154,7 +154,7 @@ class ModelHubClient:
             "chat_model_configs": chat_model_configs
         }
         response = requests.post(end_point, json=prompt_and_config, headers=self.headers)
-        return response.text
+        return response
 
     def generate_code(self, prompt, code_model_configs):
         """
@@ -167,7 +167,7 @@ class ModelHubClient:
             "code_model_configs": code_model_configs
         }
         response = requests.post(end_point, json=prompt_and_config, headers=self.headers)
-        return response.text
+        return response
 
     def generate_image(self, prompt, image_model_configs):
         """
@@ -180,8 +180,7 @@ class ModelHubClient:
             "image_model_configs": image_model_configs
         }
         response = requests.post(end_point, json=prompt_and_config, headers=self.headers)
-        generated_image = json.loads(response.text)[0]
-        return generated_image
+        return response
 
     def generate_chat(self, prompt, chat_model_configs):
         """
@@ -209,7 +208,7 @@ class ModelHubClient:
         self.chat_history.append({"role": "user", "content": prompt})
         self.chat_history.append({"role": "assistant", "content": response.text})
         
-        return response.text
+        return response
 
     def reset_chat_history(self):
         """
